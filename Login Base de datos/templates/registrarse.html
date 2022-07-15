@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registrarse.css')}}">
+    <title>registrarse</title>
+</head>
+<body>
+    <div class="container alerta2">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{message}}
+                </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+    <div class= cuadrado>    
+ 
+        <img class = "imagen" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png">
+        <h1>Bienvenido</h1>
+        <form action="/user" method="post">
+            
+          <label for="username">Ingrese un nombre</label>
+          <input type="text" name="nombre" placeholder="Introduzca su nuevo nombre" required>
+
+          <label for="username">Ingrese un usuario</label>
+          <input type="text" name="usuario" placeholder="Introduzca un nuevo nombre de usuario" required>
+            
+          <label for="username">Ingrese su correo electronico</label>
+          <input type="text" name="correo" placeholder="Introduce tu gmail" required>
+            
+          <label for="password">Contraseña</label>
+          <input type="password" name="contraseña" placeholder="Introduzca una nueva contraseña" required>
+   
+          <input type="submit" value="log in">
+          <a href="{{ url_for('home') }}">¿ya tienes una cuenta?</a>
+        </form>
+    </div>
+</body>
+</html>

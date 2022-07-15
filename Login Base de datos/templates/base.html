@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/interfaz.css')}}">
+     <title>Iniciar sesion</title>
+    
+</head>
+<body>
+    <div class="container alerta">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{message}}
+                </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class= cuadrado>
+        <img class = "imagen" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"alt-"Logo de FAzt">
+        <h1>Bienvenido</h1>
+        <form action="/sesion" method="post">
+   
+          <label for="username">Usuario</label>
+          <input type="text" name="usuario" placeholder="Introduzca su nombre de usuario">
+   
+          <label for="password">contraseña</label>
+          <input type="password" name="contraseña" placeholder="Introducir la contraseña">
+   
+          <input type="submit" value="log in">
+   
+          <a href="">¿Perdiste la contraseña?</a><BR>
+          <a href="{{ url_for('registrarse') }}">¿No tienes una cuenta?</a>
+   
+   
+        </form>
+      </div>
+</body>
+</html>
